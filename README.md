@@ -1,4 +1,4 @@
-integration-extension
+OpenRefine Extraction extension
 =====================
 
-Simple OpenRefine extension for extracting values from HTML elements
+Simple OpenRefine extension for extracting HTML elements from URLs

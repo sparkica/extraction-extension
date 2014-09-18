@@ -5,7 +5,7 @@ ConfigurationDialog.prototype = {
     var self = this;
     
     this.dialogElement = $(DOM.loadHTML("extraction-extension", "scripts/dialogs/configuration.html"));
-    
+
     /* Bind controls to actions */
     var controls = DOM.bind(this.dialogElement);
     controls.cancel.click(this.bound("hide"));
@@ -46,7 +46,7 @@ ConfigurationDialog.prototype = {
   hide: function () {
     DialogSystem.dismissUntil(this.dialogLevel - 1);
   },
-
+  
   update: function () {
     $.ajax({
       url: ExtractionExtension.servicesPath,

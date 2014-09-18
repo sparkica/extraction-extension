@@ -62,7 +62,7 @@ ExtractionDialog.prototype = {
   },
   
   extract: function (services) {
-    Refine.postProcess("extraction-extension", "extraction",
+    Refine.postProcess("extraction-extension", "extractions",
                        { column: this.column.name, services: services },
                        {},
                        { rowsChanged: true, modelsChanged: true });

@@ -27,7 +27,7 @@ import org.json.JSONWriter;
 
 /**
  * Abstract base class for element extraction services
- * with default support for JSON communication (but others are possible)
+ * with default support for JSON communication
  * @author Mateja Verlic
  */
 public abstract class ExtractionServiceBase implements ExtractionService {
@@ -37,42 +37,35 @@ public abstract class ExtractionServiceBase implements ExtractionService {
     private final static Charset UTF8 = Charset.forName("UTF-8");
     
     
-    private final URI serviceUrl;
+    private URI serviceUrl;
     private final String[] propertyNames;
     private final HashMap<String, String> properties;
-    private final URI documentationUri;
     
     /**
      * Creates a new element extraction service base class
      * @param propertyNames The names of supported properties
      */
     public ExtractionServiceBase(final String[] propertyNames) {
-        this(null, propertyNames, null);
+        this(null, propertyNames);
     }
-    
-    /**
-     * Creates a new element extraction service base class
-     * @param serviceUrl The URL of the service (can be null if not fixed)
-     * @param propertyNames The names of supported properties
-     */
-    public ExtractionServiceBase(final URI serviceUrl, final String[] propertyNames) {
-       this(serviceUrl, propertyNames, null);
-    }
-    
+        
     /**
      * Creates a new element extraction service base class
      * @param serviceUrl The URL of the service (can be null if not fixed)
      * @param propertyNames The names of supported properties
      * @param documentationUri The URI of the service's documentation
      */
-    public ExtractionServiceBase(final URI serviceUrl, final String[] propertyNames, final URI documentationUri) {
+    public ExtractionServiceBase(final URI serviceUrl, final String[] propertyNames) {
         this.serviceUrl = serviceUrl;
         this.propertyNames = propertyNames;
-        this.documentationUri = documentationUri;
         
         properties = new HashMap<String, String>(propertyNames.length);
         for (String propertyName : propertyNames)
             this.properties.put(propertyName, "");
+    }
+    
+    public void setServiceUrl(String serviceUrl) {
+            this.serviceUrl= this.serviceUrl.resolve(serviceUrl);
     }
     
     /** {@inheritDoc} */
@@ -106,12 +99,6 @@ public abstract class ExtractionServiceBase implements ExtractionService {
     /** {@inheritDoc} */
     public boolean isConfigured() {
         return true;
-    }
-    
-    /** {@inheritDoc} */
-    @Override
-    public URI getDocumentationUri() {
-        return documentationUri;
     }
     
     /**
@@ -155,6 +142,8 @@ public abstract class ExtractionServiceBase implements ExtractionService {
         return serviceUrl;
     }
 
+    
+    
     /**
      * Creates the body for a element extraction request on the specified text
      * @param text The text to analyze

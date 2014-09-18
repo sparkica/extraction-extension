@@ -6,8 +6,6 @@ ConfigurationDialog.prototype = {
     
     this.dialogElement = $(DOM.loadHTML("extraction-extension", "scripts/dialogs/configuration.html"));
     
-    console.log(this.dialogElement);
-    
     /* Bind controls to actions */
     var controls = DOM.bind(this.dialogElement);
     controls.cancel.click(this.bound("hide"));
@@ -31,12 +29,6 @@ ConfigurationDialog.prototype = {
                                      change: function (event) { settings[settingName] = $(event.target).val(); },
                                    })));
         });
-        // Add configuration instructions
-        if (service.documentation)
-          $title.append(' ', $('<a/>', { 'class': 'documentation',
-                                         text: 'configuration instructions',
-                                         href: service.documentation,
-                                         target: '_blank' }));
         // Add the service to the list
         $services.append($service);
       });
@@ -54,7 +46,7 @@ ConfigurationDialog.prototype = {
   hide: function () {
     DialogSystem.dismissUntil(this.dialogLevel - 1);
   },
-  
+
   update: function () {
     $.ajax({
       url: ExtractionExtension.servicesPath,

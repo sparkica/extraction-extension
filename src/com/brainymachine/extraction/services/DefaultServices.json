@@ -1,6 +1,6 @@
 [
     {"name": "Title", "class": "com.brainymachine.extraction.services.SparkExtract"},
-    {"name": "H1", "class": "com.brainymachine.extraction.services.SparkExtract"},
-    {"name": "Description", "class": "com.brainymachine.extraction.services.SparkExtract"},
-    {"name": "Custom", "class": "com.brainymachine.extraction.services.SparkExtract"}
+    {"name": "Custom 1", "class": "com.brainymachine.extraction.services.SparkExtract"},
+    {"name": "Custom 2", "class": "com.brainymachine.extraction.services.SparkExtract"},
+    {"name": "Custom 3", "class": "com.brainymachine.extraction.services.SparkExtract"}
 ]

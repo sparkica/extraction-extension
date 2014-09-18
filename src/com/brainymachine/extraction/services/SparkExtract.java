@@ -49,7 +49,6 @@ public class SparkExtract extends ExtractionServiceBase implements ExtractionSer
     protected String[] parseExtractionResponseElement(final JSONTokener tokener) throws JSONException {
             
         String response_string = (String)tokener.nextValue();
-        System.out.println(response_string);
         final JSONObject response = new JSONObject(response_string);
         // Empty result if no resources were found
         if (!response.has("elements"))

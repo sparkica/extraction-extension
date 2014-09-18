@@ -147,8 +147,6 @@ public class ExtractionServiceManager {
                     output.value(service.getClass().getName());
                     output.key("configured");
                     output.value(service.isConfigured());
-                    output.key("documentation");
-                    output.value(service.getDocumentationUri());
                     
                     /* Service settings object */
                     output.key("settings");

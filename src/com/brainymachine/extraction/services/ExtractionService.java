@@ -1,7 +1,5 @@
 package com.brainymachine.extraction.services;
 
-import java.net.URI;
-
 /**
  * Interface for extraction services
  * @author Mateja Verlic
@@ -41,10 +39,5 @@ public interface ExtractionService {
      */
     public boolean isConfigured();
     
-    /**
-     * Gets a URI with documentation about the service
-     * @return A documentation URI
-     */
-    public URI getDocumentationUri();
-    
+
 }

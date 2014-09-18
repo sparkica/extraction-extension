@@ -4,6 +4,8 @@ To use the Extraction extension you'll need an service that takes url and XPath 
 
 Extraction extension works (best) with sparkica/simex-service.
 
+## Pre-installation
+- Update SERVICEBASEURL in com.brainymachine.extraction.services.SparkExtract with the url of *your* service url. Currently it is set to localhost and it is assumed that you're using sparkica/simex-service.
 
 ## Installation
 
